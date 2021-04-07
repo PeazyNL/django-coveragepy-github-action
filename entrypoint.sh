@@ -7,6 +7,7 @@ echo "Starting ${GITHUB_WORKFLOW}:${GITHUB_ACTION}"
 
 APP=$1
 MIN_COVERAGE=$2
+REQUIREMENTS_FILE=$3
 
 # start PostgreSQL
 service postgresql start
@@ -28,7 +29,7 @@ fi
 
 source "${GITHUB_WORKSPACE}/${VENV_NAME}/bin/activate"
 
-pip install -r requirements.txt
+pip install -r $REQUIREMENTS_FILE
 
 echo "Base setup complete. Setting up a sample DB url and running..."
 export DATABASE_URL='postgresql://ctest:coveragetest123@127.0.0.1:5432/demo'

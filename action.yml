@@ -8,6 +8,10 @@ inputs:
     description: "Minimum allowed code coverage"
     required: false
     default: "10"  
+  requirements-file:
+    description: "Path to requirements file"
+    required: false
+    default: "requirements.txt"  
 description: 'Github Action to run tests and get coverage with Django on a Python Docker image'
 branding:
   icon: box
@@ -19,3 +23,4 @@ runs:
   args:
   - ${{ inputs.django-app }}
   - ${{ inputs.minimum-coverage }}
+  - ${{ inputs.requirements-file }}
