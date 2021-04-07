@@ -37,7 +37,7 @@ pip install -r $REQUIREMENTS_FILE
 pip install coverage==5.5
 
 echo "Base setup complete. Setting up a sample DB url and running..."
-sudo -u postgres psql -c "CREATE USER ${DB_USER} WITH SUPERUSER PASSWORD '${DB_PASS}';ALTER USER  ${DB_USER} CREATEDB;"
+su postgres psql -c "CREATE USER ${DB_USER} WITH SUPERUSER PASSWORD '${DB_PASS}';ALTER USER  ${DB_USER} CREATEDB;"
 export DATABASE_URL="postgresql://${DB_USER}:${DB_PASS}@127.0.0.1:5432/${DB_NAME}"
 
 # This will automatically fail (set -e is set by default) if the tests fail, which is OK.
