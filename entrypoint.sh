@@ -29,7 +29,9 @@ fi
 
 source "${GITHUB_WORKSPACE}/${VENV_NAME}/bin/activate"
 
+pip install --upgrade pip
 pip install -r $REQUIREMENTS_FILE
+pip install coverage==5.5
 
 echo "Base setup complete. Setting up a sample DB url and running..."
 export DATABASE_URL='postgresql://ctest:coveragetest123@127.0.0.1:5432/demo'
