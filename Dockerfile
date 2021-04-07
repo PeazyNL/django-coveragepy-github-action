@@ -28,8 +28,7 @@ RUN pip install --upgrade pip virtualenv
 # We don't expose the port, but allow all incomming connections
 USER postgres
 # configure the user for later. the service will be started in the entrypoint
-RUN  service postgresql start \
-&& psql -c "CREATE USER ctest WITH SUPERUSER PASSWORD 'coveragetest123';ALTER USER ctest CREATEDB;"
+RUN  service postgresql start
 USER root
 
 

@@ -12,6 +12,18 @@ inputs:
     description: "Path to requirements file"
     required: false
     default: "requirements.txt"  
+  db-name:
+    description: "Name of the test database"
+    required: false
+    default: "demo"  
+  db-user:
+    description: "Name of user to access the test database"
+    required: false
+    default: "ctest"  
+  db-pass:
+    description: "Password of user to access the test database"
+    required: false
+    default: "coveragetest123"  
 description: 'Github Action to run tests and get coverage with Django on a Python Docker image'
 branding:
   icon: box
@@ -24,3 +36,6 @@ runs:
   - ${{ inputs.django-app }}
   - ${{ inputs.minimum-coverage }}
   - ${{ inputs.requirements-file }}
+  - ${{ inputs.db-name }}
+  - ${{ inputs.db-user }}
+  - ${{ inputs.db-pass }}
